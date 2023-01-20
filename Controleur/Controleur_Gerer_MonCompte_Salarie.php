@@ -21,7 +21,7 @@ switch ($action) {
         break;
     case "submitModifMDP":
         //il faut récuperer le mdp en BDD et vérifier qu'ils sont identiques
-        $salarie = Modele_Salarie::Salarie_Select_byId($_SESSION["idSalarie"]);
+        v
         if (password_verify($_REQUEST["AncienPassword"], $salarie["password"])) {
             //on vérifie si le mot de passe de la BDD est le même que celui rentré
             if ($_REQUEST["NouveauPassword"] == $_REQUEST["ConfirmPassword"]) {
@@ -62,7 +62,7 @@ switch ($action) {
 
 
     case "detailsCompte":
-        Modele_Salarie::Salarie_Select_byId($_SESSION["idSalarie"]);
+        $salarie = Modele_Salarie::Salarie_Select_byId($_SESSION["idSalarie"]);
         $Vue->setEntete(new Vue_Structure_Entete());
         $Vue->addToCorps(new \App\Vue\Vue_detail_compte_salarie());
         break;
