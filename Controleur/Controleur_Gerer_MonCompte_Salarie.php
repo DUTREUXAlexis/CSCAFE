@@ -57,8 +57,18 @@ switch ($action) {
     case "modifierRGPD":
         $Vue->setEntete(new Vue_Structure_Entete());
         $Vue->addToCorps(new \App\Vue\Vue_RGPD());
-
         break;
+
+
+
+    case "detailsCompte":
+        Modele_Salarie::Salarie_Select_byId($_SESSION["idSalarie"]);
+        $Vue->setEntete(new Vue_Structure_Entete());
+        $Vue->addToCorps(new \App\Vue\Vue_detail_compte_salarie());
+        break;
+
+
+
     default :
         //Cas par défaut: affichage du menu des actions.
         $Vue->setEntete(new Vue_Structure_Entete());
