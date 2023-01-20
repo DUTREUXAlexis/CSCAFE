@@ -172,4 +172,15 @@ WHERE idSalarie = :paramidUtilisateur');
         $requetePreparee->bindParam('dateAct', $dateAct);
         $reponse = $requetePreparee->execute();
     }
+
+    static function deleteAccount($idSalarie)
+    {
+        $connexionPDO = Singleton_ConnexionPDO::getInstance();
+        $requetePreparee = $connexionPDO->prepare('
+        DELETE 
+        FROM salarie
+        WHERE idSalarie = :idSalarie');
+        $requetePreparee->bindParam('idSalarie', $idSalarie);
+        $reponse = $requetePreparee->execute();
+    }
 }

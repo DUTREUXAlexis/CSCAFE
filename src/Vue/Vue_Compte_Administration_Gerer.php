@@ -65,6 +65,18 @@ class Vue_Compte_Administration_Gerer extends Vue_Composant
                 </form>
             </td>
         </tr>
+        <tr>
+            <td>
+                <form style='display: contents; background: red; color: black;'>
+                    ".genereChampHiddenCSRF()."
+                    <input type='hidden' name='case' value='$this->action'>
+                    
+                    <button style=' border: red;background: red; color: black;'type='submit' name='action' value='suppCompte'>
+                        Supprimer le compte
+                    </button>
+                </form>
+            </td>
+        </tr>
     </table>
     $this->msg
     ";

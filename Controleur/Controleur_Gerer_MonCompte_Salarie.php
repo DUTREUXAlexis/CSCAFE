@@ -67,6 +67,11 @@ switch ($action) {
         $Vue->addToCorps(new \App\Vue\Vue_detail_compte_salarie());
         break;
 
+    case "suppCompte":
+        Modele_Salarie::deleteAccount($_SESSION["idSalarie"]);
+        $Vue->setEntete(new Vue_Structure_Entete());
+        break;
+
 
 
     default :
