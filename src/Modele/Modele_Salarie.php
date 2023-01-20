@@ -158,4 +158,18 @@ WHERE idSalarie = :paramidUtilisateur');
         $requetePreparee->bindParam('dateAct', $dateAct);
         $reponse = $requetePreparee->execute();
     }
+
+    static function Salarie_RefuserRGPD($idSalarie)
+    {
+        $connexionPDO = Singleton_ConnexionPDO::getInstance();
+        $requetePreparee = $connexionPDO->prepare('
+        update salarie
+        set aAccepteRGPD = 0,
+            dateAcceptionRGPD = :dateAct
+        where idSalarie = :idSalarie');
+        $requetePreparee->bindParam('idSalarie', $idSalarie);
+        $dateAct = date("Y-m-d H:i:s");
+        $requetePreparee->bindParam('dateAct', $dateAct);
+        $reponse = $requetePreparee->execute();
+    }
 }
